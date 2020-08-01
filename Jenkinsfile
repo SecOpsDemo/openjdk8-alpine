@@ -16,9 +16,9 @@ properties([
 podTemplate(label: label, containers: [
   containerTemplate(name: "builder", image: "opsnowtools/valve-builder:v0.2.40", command: "cat", ttyEnabled: true, alwaysPullImage: true)
 ], volumes: [
-//   hostPathVolume(mountPath: "/var/run/docker.sock", hostPath: "/var/run/docker.sock"),
-//   hostPathVolume(mountPath: "/home/jenkins/.draft", hostPath: "/home/jenkins/.draft"),
-//   hostPathVolume(mountPath: "/home/jenkins/.helm", hostPath: "/home/jenkins/.helm")
+  hostPathVolume(mountPath: "/var/run/docker.sock", hostPath: "/var/run/docker.sock"),
+  hostPathVolume(mountPath: "/home/jenkins/.draft", hostPath: "/home/jenkins/.draft"),
+  hostPathVolume(mountPath: "/home/jenkins/.helm", hostPath: "/home/jenkins/.helm")
 ]) {
   node(label) {
     stage("Prepare") {
